@@ -1,13 +1,16 @@
-import React, { ReactElement } from 'react';
+import React, { FC, memo } from 'react';
+import { InputTypes } from '../../types/input-types.ts';
 
 export type InputProps = {
-  type?: 'text';
+  type?: InputTypes;
 };
 
-const defaultInputPros: InputProps = {
+const defaultInputProps: InputProps = {
   type: 'text',
 };
 
-export const Input = React.memo(({ type } = defaultInputPros): ReactElement => {
+const InputComponent: FC<InputProps> = ({ type = defaultInputProps.type }) => {
   return <input type={type} />;
-});
+};
+
+export const Input = memo(InputComponent);

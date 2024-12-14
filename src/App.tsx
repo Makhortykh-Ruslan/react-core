@@ -1,10 +1,22 @@
 import './App.css';
-import { Input } from './app/core/components/Input/Input.tsx';
+import { useState } from 'react';
 
 function App() {
+  const [state, setState] = useState(0);
+
+  const handleIcre = () => {
+    setState(state + 1);
+  };
+
+  const handleDecr = () => {
+    setState(state - 1);
+  };
+
   return (
     <>
-      <Input></Input>
+      <p> {state || '-'} </p>
+      <button onClick={handleIcre}>Count +</button>
+      <button onClick={handleDecr}>Count -</button>
     </>
   );
 }
